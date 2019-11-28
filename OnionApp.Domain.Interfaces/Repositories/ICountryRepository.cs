@@ -1,13 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using OnionApp.Domain.Core.DTOs;
+﻿using OnionApp.Domain.Models.Entities;
 
 namespace OnionApp.Domain.Interfaces.Repositories
 {
-    public interface ICountryRepository
+    public interface ICountryRepository : IGenericRepository<Country>
     {
-        Task<IEnumerable<IdAndNameDto>> GetBasicInfoAllAsync();
-
-        Task<string> GetPostalCodeFormatAsync(int id);
+        
     }
 }

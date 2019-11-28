@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OnionApp.Domain.Core.Entities
+namespace OnionApp.Domain.Models.Entities
 {
     public class RelationAddress
     {

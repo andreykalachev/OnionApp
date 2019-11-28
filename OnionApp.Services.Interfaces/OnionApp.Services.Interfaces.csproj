@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\OnionApp.Domain.Models.csproj" />
+    <ProjectReference Include="..\OnionApp.Domain.Interfaces\OnionApp.Domain.Interfaces.csproj" />
+    <ProjectReference Include="..\OnionApp.Services.ServiceModels\OnionApp.Services.ServiceModels.csproj" />
   </ItemGroup>
 
 </Project>

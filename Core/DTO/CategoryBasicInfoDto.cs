@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace OnionApp.Domain.Core.DTOs
+namespace OnionApp.Domain.Models.DTO
 {
-    public class IdAndNameDto
+    public class CategoryBasicInfoDto
     {
         public Guid Id { get; set; }
 

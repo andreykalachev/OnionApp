@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using OnionApp.Domain.Core.DTOs;
+﻿using OnionApp.Domain.Models.Entities;
 
 namespace OnionApp.Domain.Interfaces.Repositories
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository : IGenericRepository<Category>
     {
-        Task<IEnumerable<IdAndNameDto>> GetBasicInfoAllAsync();
+        
     }
 }

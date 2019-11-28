@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OnionApp.Domain.Core.DTOs
+namespace OnionApp.Services.ServiceModels.DTOs
 {
     public class RelationBasicInfoDto
     {

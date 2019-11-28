@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OnionApp.Domain.Core.Entities
+namespace OnionApp.Domain.Models.Entities
 {
     public class Category
     {
