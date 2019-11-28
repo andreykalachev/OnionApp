@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OnionApp.Domain.Core
+namespace OnionApp.Domain.Core.Entities
 {
     public class Country
     {

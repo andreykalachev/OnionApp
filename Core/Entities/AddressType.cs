@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace OnionApp.Domain.Core
+namespace OnionApp.Domain.Core.Entities
 {
-    public class Category
+    public class AddressType
     {
-        public Category()
-        {
-            Relations = new List<Relation>();
-        }
-
         public Guid Id { get; set; }
 
         public DateTime CreatedAt { get; set; }
@@ -63,7 +57,5 @@ namespace OnionApp.Domain.Core
         public DateTime? Timestamp3 { get; set; }
 
         public DateTime? Timestamp4 { get; set; }
-
-        public IList<Relation> Relations { get; set; }
     }
 }
