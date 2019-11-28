@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionApp", "OnionApp\OnionApp.csproj", "{BAB854A6-A985-4C78-A291-EE5333EC56D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp", "OnionApp\OnionApp.csproj", "{BAB854A6-A985-4C78-A291-EE5333EC56D3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{55252476-9D5A-4ABF-9A0E-6EFE678B7A77}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{E3870224-757B-4D1B-9A10-A3A92741DFD6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{75C4B92F-9A59-4C47-B165-F2FA0EC9610E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionApp.Domain.Core", "Core\OnionApp.Domain.Core.csproj", "{8A45B5F6-5B5B-4E2B-88D2-7F38C3201F37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +23,16 @@ Global
 		{BAB854A6-A985-4C78-A291-EE5333EC56D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAB854A6-A985-4C78-A291-EE5333EC56D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAB854A6-A985-4C78-A291-EE5333EC56D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A45B5F6-5B5B-4E2B-88D2-7F38C3201F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A45B5F6-5B5B-4E2B-88D2-7F38C3201F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A45B5F6-5B5B-4E2B-88D2-7F38C3201F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A45B5F6-5B5B-4E2B-88D2-7F38C3201F37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8A45B5F6-5B5B-4E2B-88D2-7F38C3201F37} = {55252476-9D5A-4ABF-9A0E-6EFE678B7A77}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F689DA4C-4C00-4A09-B6F8-2C25916BD171}
