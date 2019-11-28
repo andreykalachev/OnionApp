@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace OnionApp.Domain.Core
 {
@@ -111,5 +112,13 @@ namespace OnionApp.Domain.Core
         public string SupplyNumber { get; set; }
         public Guid? ThirdPartyToUseForInvoicing { get; set; }
         public int? Flags { get; set; }
+
+        public RelationAddress RelationAddress { get; set; }
+        public IList<Category> Categories { get; set; }
+
+        public Relation()
+        {
+            Categories = new List<Category>();
+        }
     }
 }

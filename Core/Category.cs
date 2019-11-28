@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace OnionApp.Domain.Core
 {
@@ -31,5 +32,12 @@ namespace OnionApp.Domain.Core
         public DateTime? Timestamp2 { get; set; }
         public DateTime? Timestamp3 { get; set; }
         public DateTime? Timestamp4 { get; set; }
+
+        public IList<Relation> Relations { get; set; }
+
+        public Category()
+        {
+            Relations = new List<Relation>();
+        }
     }
 }

@@ -5,7 +5,9 @@ namespace OnionApp.Domain.Core
     public class RelationAddress
     {
         public Guid RelationId { get; set; }
+        public Relation Relation { get; set; }
         public Guid AddressTypeId { get; set; }
+        public AddressType Type { get; set; }
         public string Street { get; set; }
         public int? Number { get; set; }
         public string NumberSuffix { get; set; }
