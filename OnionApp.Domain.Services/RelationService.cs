@@ -40,7 +40,7 @@ namespace OnionApp.Domain.Services
 
         public async Task<IEnumerable<RelationBasicInfoDto>> GetAllEnabledByCategoryIdAsync(Guid categoryId)
         {
-            var relations = await _repository.GetAllAsync(x => x.Categories.Any(c => c.Id == categoryId) && x.IsDisabled == false);
+            var relations = await _repository.GetAllAsync(x => x.RelationCategories.Any(c => c.CategoryId == categoryId) && x.IsDisabled == false);
 
             return _mapper.Map<IEnumerable<RelationBasicInfoDto>>(relations);
         }
@@ -51,7 +51,7 @@ namespace OnionApp.Domain.Services
             await _unitOfWork.CommitAsync();
         }
 
-        public async Task DeleteAsync(Guid id)
+        public async Task DisableAsync(Guid id)
         {
             var relation = await _repository.FindAsync(x => x.Id == id);
 
@@ -62,7 +62,7 @@ namespace OnionApp.Domain.Services
             }
         }
 
-        public async Task DeleteRangeAsync(IEnumerable<Guid> relationToDeleteIds)
+        public async Task DisableRangeAsync(IEnumerable<Guid> relationToDeleteIds)
         {
             foreach (var id in relationToDeleteIds)
             {

@@ -16,9 +16,9 @@ namespace OnionApp.Domain.Interfaces.Services
 
         Task CreateAsync(Relation relation);
 
-        Task DeleteAsync(Guid id);
+        Task DisableAsync(Guid id);
 
-        Task DeleteRangeAsync(IEnumerable<Guid> relationToDeleteIds);
+        Task DisableRangeAsync(IEnumerable<Guid> relationToDeleteIds);
 
         Task UpdateAsync(RelationBasicInfoDto relationBasicInfoDto);
     }

@@ -7,7 +7,7 @@ namespace OnionApp.Domain.Models.Entities
     {
         public Relation()
         {
-            Categories = new List<Category>();
+            RelationCategories = new List<RelationCategory>();
         }
 
         public Guid Id { get; set; }
@@ -226,6 +226,6 @@ namespace OnionApp.Domain.Models.Entities
 
         public RelationAddress RelationAddress { get; set; }
 
-        public IList<Category> Categories { get; set; }
+        public IList<RelationCategory> RelationCategories { get; set; }
     }
 }
