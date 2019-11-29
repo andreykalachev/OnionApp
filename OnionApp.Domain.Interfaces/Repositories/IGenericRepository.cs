@@ -7,8 +7,7 @@ namespace OnionApp.Domain.Interfaces.Repositories
 {
     public interface IGenericRepository<TEntity> where TEntity : class
     {
-        
-        Task<TEntity> GetAsync(int id);
+        Task<TEntity> GetAsync(Guid id);
 
         Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> predicate);
 
