@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnionApp.Domain.Models.Entities;
+using OnionApp.Persistence.Context.Configurations;
 
 namespace OnionApp.Persistence.Context
 {
@@ -24,31 +25,17 @@ namespace OnionApp.Persistence.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Relation
-            modelBuilder.Entity<Relation>().ToTable("dbo.tblRelation");
-            modelBuilder.Entity<Relation>().HasOne(x => x.RelationAddress).WithOne(x => x.Relation)
-                .HasForeignKey<RelationAddress>(x => x.RelationId).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.ApplyConfiguration(new RelationConfiguration());
 
-            // RelationCategory
-            modelBuilder.Entity<RelationCategory>().ToTable("dbo.tblRelationCategory");
-            modelBuilder.Entity<RelationCategory>().HasKey(x => new { x.CategoryId, x.RelationId });
-            modelBuilder.Entity<RelationCategory>().HasOne(x => x.Relation).WithMany(x => x.RelationCategories)
-                .HasForeignKey(x => x.RelationId);
-            modelBuilder.Entity<RelationCategory>().HasOne(x => x.Category).WithMany(x => x.RelationCategories)
-                .HasForeignKey(x => x.CategoryId);
+            modelBuilder.ApplyConfiguration(new RelationCategoryConfiguration());
 
-            // Category
-            modelBuilder.Entity<Category>().ToTable("dbo.tblCategory");
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
 
-            // AddressType
-            modelBuilder.Entity<AddressType>().ToTable("dbo.tblAddressType");
+            modelBuilder.ApplyConfiguration(new AddressTypeConfiguration());
 
-            // Country
-            modelBuilder.Entity<Country>().ToTable("dbo.tblCountry");
+            modelBuilder.ApplyConfiguration(new CountryConfiguration());
 
-            // RelationAddress
-            modelBuilder.Entity<RelationAddress>().ToTable("dbo.tblRelationAddress");
-            modelBuilder.Entity<RelationAddress>().HasKey(x => x.RelationId);
+            modelBuilder.ApplyConfiguration(new RelationAddressConfiguration());
         }
     }
 }
