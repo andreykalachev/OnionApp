@@ -24,7 +24,7 @@ namespace OnionApp.Domain.Services
             _repository = _unitOfWork.RelationRepository;
         }
 
-        public async Task<RelationBasicInfoDto> GetASync(Guid id)
+        public async Task<RelationBasicInfoDto> GetByIdAsync(Guid id)
         {
             var relation = await _repository.FindAsync(x => x.Id == id);
 
@@ -33,19 +33,19 @@ namespace OnionApp.Domain.Services
 
         public async Task<IEnumerable<RelationBasicInfoDto>> GetAllEnabledBasicInfoAsync()
         {
-            var relation = await _repository.GetAllAsync(x => x.IsDisabled == false);
+            var relation = await _repository.GetAllAsync(x => !x.IsDisabled);
 
             return _mapper.Map<IEnumerable<RelationBasicInfoDto>>(relation);
         }
 
-        public async Task<IEnumerable<RelationBasicInfoDto>> GetAllEnabledOfCategoryAsync(Guid categoryId)
+        public async Task<IEnumerable<RelationBasicInfoDto>> GetAllEnabledByCategoryIdAsync(Guid categoryId)
         {
             var relations = await _repository.GetAllAsync(x => x.Categories.Any(c => c.Id == categoryId) && x.IsDisabled == false);
 
             return _mapper.Map<IEnumerable<RelationBasicInfoDto>>(relations);
         }
 
-        public async Task AddAsync(Relation relation)
+        public async Task CreateAsync(Relation relation)
         {
             _repository.Add(relation);
             await _unitOfWork.CommitAsync();

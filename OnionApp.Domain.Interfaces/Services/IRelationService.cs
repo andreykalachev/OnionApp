@@ -8,13 +8,13 @@ namespace OnionApp.Domain.Interfaces.Services
 {
     public interface IRelationService
     {
-        Task<RelationBasicInfoDto> GetASync(Guid id);
+        Task<RelationBasicInfoDto> GetByIdAsync(Guid id);
 
         Task<IEnumerable<RelationBasicInfoDto>> GetAllEnabledBasicInfoAsync();
 
-        Task<IEnumerable<RelationBasicInfoDto>> GetAllEnabledOfCategoryAsync(Guid categoryId);
+        Task<IEnumerable<RelationBasicInfoDto>> GetAllEnabledByCategoryIdAsync(Guid categoryId);
 
-        Task AddAsync(Relation relation);
+        Task CreateAsync(Relation relation);
 
         Task DeleteAsync(Guid id);
 
