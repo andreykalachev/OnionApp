@@ -48,7 +48,7 @@ namespace OnionApp.Persistence.Repositories
 
         public virtual void Delete(TEntity entity)
         {
-            Context.Entry(entity).State = EntityState.Added;
+            Context.Entry(entity).State = EntityState.Deleted;
         }
 
         public virtual void Update(TEntity entity)
