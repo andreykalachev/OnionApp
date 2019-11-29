@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using OnionApp.Domain.Models.DTO;
 using OnionApp.Domain.Models.Entities;
@@ -7,17 +8,17 @@ namespace OnionApp.Domain.Interfaces.Services
 {
     public interface IRelationService
     {
-        Task<RelationBasicInfoDto> GetASync(int id);
+        Task<RelationBasicInfoDto> GetASync(Guid id);
 
-        Task<IEnumerable<RelationBasicInfoDto>> GetBasicInfoAllAsync();
+        Task<IEnumerable<RelationBasicInfoDto>> GetAllEnabledBasicInfoAsync();
 
-        Task<IEnumerable<RelationBasicInfoDto>> GetAllOfCategoryAsync(int categoryId);
+        Task<IEnumerable<RelationBasicInfoDto>> GetAllEnabledOfCategoryAsync(Guid categoryId);
 
-        int Add(Relation relation);
+        Task AddAsync(Relation relation);
 
-        Task DeleteAsync(int id);
+        Task DeleteAsync(Guid id);
 
-        Task DeleteRangeAsync(IEnumerable<int> relationToDeleteIds);
+        Task DeleteRangeAsync(IEnumerable<Guid> relationToDeleteIds);
 
         Task UpdateAsync(RelationBasicInfoDto relationBasicInfoDto);
     }

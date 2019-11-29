@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using OnionApp.Domain.Models.DTO;
 
@@ -6,8 +7,8 @@ namespace OnionApp.Domain.Interfaces.Services
 {
     public interface ICountryService
     {
-        Task<IEnumerable<CountryBasicInfoDto>> GetBasicInfoAllAsync();
+        Task<IEnumerable<CountryBasicInfoDto>> GetAllEnabledBasicInfoAsync();
 
-        Task<string> GetPostalCodeFormatAsync(int id);
+        Task<string> GetPostalCodeFormatAsync(Guid id);
     }
 }
