@@ -11,7 +11,7 @@ namespace OnionApp.Domain.Interfaces
 
         ICategoryRepository CategoryRepository { get; set; }
 
-        Task CommitAsync();
+        Task<int> CommitAsync();
 
         Task RejectChangesAsync();
     }

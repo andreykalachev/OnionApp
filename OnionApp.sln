@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.Domain.Models", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.Domain.Interfaces", "OnionApp.Domain.Interfaces\OnionApp.Domain.Interfaces.csproj", "{E4CB2388-69B4-45DD-9EF8-E26AB26A0C34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionApp.Domain.Services", "OnionApp.Domain.Services\OnionApp.Domain.Services.csproj", "{4EE613D1-64BC-462F-BF03-7B43982956C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionApp.Domain.Services", "OnionApp.Domain.Services\OnionApp.Domain.Services.csproj", "{4EE613D1-64BC-462F-BF03-7B43982956C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{BA3F13C8-CEDE-4E4B-8069-4BB1164E802C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionApp.Persistence", "OnionApp.Persistence\OnionApp.Persistence.csproj", "{2B357470-9228-413F-9066-E578A0744A10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +39,10 @@ Global
 		{4EE613D1-64BC-462F-BF03-7B43982956C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EE613D1-64BC-462F-BF03-7B43982956C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EE613D1-64BC-462F-BF03-7B43982956C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B357470-9228-413F-9066-E578A0744A10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B357470-9228-413F-9066-E578A0744A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B357470-9228-413F-9066-E578A0744A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B357470-9228-413F-9066-E578A0744A10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +51,7 @@ Global
 		{8A45B5F6-5B5B-4E2B-88D2-7F38C3201F37} = {55252476-9D5A-4ABF-9A0E-6EFE678B7A77}
 		{E4CB2388-69B4-45DD-9EF8-E26AB26A0C34} = {55252476-9D5A-4ABF-9A0E-6EFE678B7A77}
 		{4EE613D1-64BC-462F-BF03-7B43982956C7} = {55252476-9D5A-4ABF-9A0E-6EFE678B7A77}
+		{2B357470-9228-413F-9066-E578A0744A10} = {BA3F13C8-CEDE-4E4B-8069-4BB1164E802C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F689DA4C-4C00-4A09-B6F8-2C25916BD171}

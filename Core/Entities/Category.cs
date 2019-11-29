@@ -7,7 +7,7 @@ namespace OnionApp.Domain.Models.Entities
     {
         public Category()
         {
-            Relations = new List<Relation>();
+            RelationCategories = new List<RelationCategory>();
         }
 
         public Guid Id { get; set; }
@@ -64,6 +64,6 @@ namespace OnionApp.Domain.Models.Entities
 
         public DateTime? Timestamp4 { get; set; }
 
-        public IList<Relation> Relations { get; set; }
+        public IList<RelationCategory> RelationCategories { get; set; }
     }
 }
