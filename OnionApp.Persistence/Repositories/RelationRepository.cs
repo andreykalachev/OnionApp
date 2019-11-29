@@ -4,12 +4,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using OnionApp.Domain.Interfaces.Repositories;
 using OnionApp.Domain.Models.Entities;
 using OnionApp.Persistence.Context;
 
 namespace OnionApp.Persistence.Repositories
 {
-    public class RelationRepository : GenericRepository<Relation>
+    public class RelationRepository : GenericRepository<Relation>, IRelationRepository
     {
         public RelationRepository(DataContext context) : base(context)
         {
