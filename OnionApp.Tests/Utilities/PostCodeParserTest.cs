@@ -21,9 +21,9 @@ namespace OnionApp.Tests.Utilities
 
         [Theory]
         [MemberData(nameof(ParseTestData))]
-        public void ParseTest(string srt, string mask, string expected)
+        public void ApplyMaskToPostCodeTest(string srt, string mask, string expected)
         {
-            var actual = Parse(srt, mask);
+            var actual = ApplyMaskToPostCode(srt, mask);
 
             Assert.Equal(expected, actual);
         }

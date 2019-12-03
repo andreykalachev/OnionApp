@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace OnionApp.Domain.Services.Utilities
 {
     public static class PostCodeParser
     {
-        public static string Parse(string srt, string postalCodeMask)
+        public static string ApplyMaskToPostCode(string srt, string postalCodeMask)
         {
             var address = new string(srt?.ToCharArray().Where(Char.IsLetterOrDigit).ToArray());
             if (string.IsNullOrEmpty(address)) return null;
