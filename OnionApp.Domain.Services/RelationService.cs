@@ -8,19 +8,22 @@ using OnionApp.Domain.Interfaces.Repositories;
 using OnionApp.Domain.Interfaces.Services;
 using OnionApp.Domain.Models.DTO;
 using OnionApp.Domain.Models.Entities;
+using OnionApp.Domain.Services.Utilities;
 
 namespace OnionApp.Domain.Services
 {
     public class RelationService : IRelationService
     {
         private readonly IRelationRepository _repository;
+        private readonly ICountryService _countryService;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public RelationService(IUnitOfWork unitOfWork, IMapper mapper)
+        public RelationService(IUnitOfWork unitOfWork, IMapper mapper, ICountryService countryService)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _countryService = countryService;
             _repository = _unitOfWork.RelationRepository;
         }
 
@@ -47,7 +50,15 @@ namespace OnionApp.Domain.Services
 
         public async Task CreateAsync(Relation relation)
         {
+            var address = relation.RelationAddress;
+            var postalCodeMask = await _countryService.GetPostalCodeFormatByCountryNameAsync(address.CountryName);
+
+            var parsedPostalCode = PostCodeParser.Parse(address.PostalCode, postalCodeMask);
+            relation.RelationAddress.PostalCode = parsedPostalCode;
+
             _repository.Add(relation);
+            _unitOfWork.RelationAddressRepository.Add(relation.RelationAddress);
+
             await _unitOfWork.CommitAsync();
         }
 
@@ -80,11 +91,19 @@ namespace OnionApp.Domain.Services
         public async Task UpdateAsync(RelationBasicInfoDto relationBasicInfoDto)
         {
             var relation = await _repository.FindAsync(x => x.Id == relationBasicInfoDto.Id);
+            var address = await _unitOfWork.RelationAddressRepository.FindAsync(x => x.RelationId == relationBasicInfoDto.Id) ?? new RelationAddress();
 
             if (relation != null)
             {
-                 _mapper.Map(relationBasicInfoDto, relation);
+                _mapper.Map(relationBasicInfoDto, relation);
 
+                var postalCodeMask = await _countryService.GetPostalCodeFormatByCountryNameAsync(address.CountryName);
+                var parsedPostalCode = PostCodeParser.Parse(relationBasicInfoDto.PostalCode, postalCodeMask);
+                relationBasicInfoDto.PostalCode = parsedPostalCode;
+
+                _mapper.Map(relationBasicInfoDto, relation.RelationAddress);
+
+                _unitOfWork.RelationAddressRepository.Update(relation.RelationAddress);
                 _repository.Update(relation);
                 await _unitOfWork.CommitAsync();
             }

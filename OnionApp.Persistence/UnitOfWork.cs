@@ -9,12 +9,15 @@ namespace OnionApp.Persistence
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public UnitOfWork(DataContext context, IRelationRepository relationRepository, ICountryRepository countryRepository, ICategoryRepository categoryRepository)
+        public UnitOfWork(DataContext context, IRelationRepository relationRepository, ICountryRepository countryRepository, ICategoryRepository categoryRepository, 
+            IRelationAddressRepository relationAddressRepository, IRelationAddressTypeRepository relationAddressTypeRepository)
         {
             _context = context;
             RelationRepository = relationRepository;
             CountryRepository = countryRepository;
             CategoryRepository = categoryRepository;
+            RelationAddressRepository = relationAddressRepository;
+            RelationAddressTypeRepository = relationAddressTypeRepository;
         }
 
         private readonly DataContext _context;
@@ -24,6 +27,10 @@ namespace OnionApp.Persistence
         public ICountryRepository CountryRepository { get; set; }
 
         public ICategoryRepository CategoryRepository { get; set; }
+
+        public IRelationAddressRepository RelationAddressRepository { get; set; }
+
+        public IRelationAddressTypeRepository RelationAddressTypeRepository { get; set; }
 
         public async Task<int> CommitAsync()
         {

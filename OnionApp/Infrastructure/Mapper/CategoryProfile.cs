@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using AutoMapper;
+﻿using AutoMapper;
 using OnionApp.Domain.Models.DTO;
 using OnionApp.Domain.Models.Entities;
 
@@ -12,8 +11,6 @@ namespace OnionApp.Infrastructure.Mapper
             CreateMap<Category, CategoryBasicInfoDto>();
 
             CreateMap<CategoryBasicInfoDto, Category>();
-
-            CreateMap<IEnumerable<Category>, IEnumerable<CategoryBasicInfoDto>>();
         }
     }
 }

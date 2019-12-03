@@ -8,7 +8,7 @@ namespace OnionApp.Domain.Models.Entities
 
         public Relation Relation { get; set; }
 
-        public Guid AddressTypeId { get; set; }
+        public Guid? AddressTypeId { get; set; }
 
         public AddressType Type { get; set; }
 

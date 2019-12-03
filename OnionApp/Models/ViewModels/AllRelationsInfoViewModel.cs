@@ -7,6 +7,6 @@ namespace OnionApp.Models.ViewModels
     {
         public IList<RelationWithAddress> Relations { get; set; }
 
-        public IList<CategoryBasicInfoDto> MyProperty { get; set; }
+        public IList<CategoryBasicInfoDto> Categories { get; set; }
     }
 }

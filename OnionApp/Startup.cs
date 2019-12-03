@@ -41,6 +41,8 @@ namespace OnionApp
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ICountryRepository, CountryRepository>();
             services.AddScoped<IRelationRepository, RelationRepository>();
+            services.AddScoped<IRelationAddressTypeRepository, RelationAddressTypeRepository>();
+            services.AddScoped<IRelationAddressRepository, RelationAddressRepository>();
 
             //add services dependencies
             services.AddScoped<ICategoryService, CategoryService>();

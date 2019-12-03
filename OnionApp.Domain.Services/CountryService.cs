@@ -35,5 +35,10 @@ namespace OnionApp.Domain.Services
 
             return country.PostalCodeFormat;
         }
+
+        public async Task<string> GetPostalCodeFormatByCountryNameAsync(string countryName)
+        {
+            return await _repository.GetPostCodeFormatByCountryName(countryName);
+        }
     }
 }

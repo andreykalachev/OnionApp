@@ -11,6 +11,10 @@ namespace OnionApp.Domain.Interfaces
 
         ICategoryRepository CategoryRepository { get; set; }
 
+        IRelationAddressRepository RelationAddressRepository { get; set; }
+
+        IRelationAddressTypeRepository RelationAddressTypeRepository { get; set; }
+
         Task<int> CommitAsync();
 
         Task RejectChangesAsync();

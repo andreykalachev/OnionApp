@@ -12,7 +12,7 @@ namespace OnionApp.Domain.Models.Entities
 
         public Guid Id { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
 
         public string CreatedBy { get; set; }
 
@@ -24,9 +24,9 @@ namespace OnionApp.Domain.Models.Entities
 
         public Guid? ParentRelationId { get; set; }
 
-        public bool IsTemporary { get; set; }
+        public bool? IsTemporary { get; set; }
 
-        public bool IsMe { get; set; }
+        public bool? IsMe { get; set; }
 
         public string Name { get; set; }
 
@@ -88,7 +88,7 @@ namespace OnionApp.Domain.Models.Entities
 
         public double? PaymentTerm { get; set; }
 
-        public bool PaymentViaAutomaticDebit { get; set; }
+        public bool? PaymentViaAutomaticDebit { get; set; }
 
         public string VatNumber { get; set; }
 
@@ -204,9 +204,9 @@ namespace OnionApp.Domain.Models.Entities
 
         public Guid? ArrivalTimeSlotIdOnSaturdays { get; set; }
 
-        public int InvoiceDateGenerationOptions { get; set; }
+        public int? InvoiceDateGenerationOptions { get; set; }
 
-        public int InvoiceGroupByOptions { get; set; }
+        public int? InvoiceGroupByOptions { get; set; }
 
         public string InvoiceGroupByTransportOrderColumnName { get; set; }
 

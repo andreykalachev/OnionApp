@@ -1,7 +1,59 @@
 ﻿@model OnionApp.Models.ViewModels.AllRelationsInfoViewModel
+
 @{
     ViewData["Title"] = "Relations";
 }
 
-<h2>View</h2>
+<h2>Relations</h2>
 
+<h3>Select category</h3>
+<a class="btn btn-default" href='@Url.Action("Index", "Relation")'>All</a>
+@foreach (var category in Model.Categories)
+{
+    <a class="btn btn-default" href='@Url.Action("GetRelationsByCategory", "Relation", new {categoryId = category.Id})'>@category.Name</a>
+}
+
+<h3>Actions</h3>
+<a class="btn btn-success" href='@Url.Action("Create", "Relation")'>Create</a>
+<a class="btn btn-danger" onclick="deleteSelected()">Delete Selected</a>
+
+<table class="table" style="text-align: center;">
+    <tr>
+        <td class="hidden">Id</td>
+        <td><a class="btn" href='@Url.Action("Index", "Relation", new{sortOrder = "Name"})'>Name</a></td>
+        <td><a class="btn" href='@Url.Action("Index", "Relation", new{sortOrder = "FullName"})'>FullName</a></td>
+        <td><a class="btn" href='@Url.Action("Index", "Relation", new{sortOrder = "Telephone"})'>Telephone</a></td>
+        <td><a class="btn" href='@Url.Action("Index", "Relation", new{sortOrder = "Email"})'>Email</a></td>
+        <td><a class="btn" href='@Url.Action("Index", "Relation", new{sortOrder = "Country"})'>Country</a></td>
+        <td><a class="btn" href='@Url.Action("Index", "Relation", new{sortOrder = "City"})'>City</a></td>
+        <td><a class="btn" href='@Url.Action("Index", "Relation", new{sortOrder = "Street"})'>Street</a></td>
+        <td><a class="btn" href='@Url.Action("Index", "Relation", new{sortOrder = "PostalCode"})'>PostalCode</a></td>
+        <td><a class="btn" style="cursor: default; color: black">StrNumber</a></td>
+        <td><a class="btn" style="cursor: default; color: black">Delete</a></td>
+        <td></td>
+        <td></td>
+    </tr>
+    @foreach (var relation in Model.Relations)
+    {
+        <tr>
+            <td class="hidden">@relation.Id</td>
+            <td>@relation.Name</td>
+            <td>@relation.FullName</td>
+            <td>@relation.TelephoneNumber</td>
+            <td>@relation.EMailAddress</td>
+            <td>@relation.CountryName</td>
+            <td>@relation.City</td>
+            <td>@relation.Street</td>
+            <td>@relation.PostalCode</td>
+            <td>@relation.StreetNumber</td>
+            <td><input type="checkbox" value="false" data-id=@relation.Id /></td>
+            <td><a class="btn btn-warning" href='@Url.Action("Edit", "Relation", new {id = relation.Id})'>Edit</a></td>
+            <td><a class="btn btn-danger" href='@Url.Action("Delete", "Relation", new {id = relation.Id})'>Delete</a></td>
+        </tr>
+    }
+</table>
+
+@section Scripts
+{ 
+    <script src="@Url.Content("/js/Relation/Index.js")"></script>
+}

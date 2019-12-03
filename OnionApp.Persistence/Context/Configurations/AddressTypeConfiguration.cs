@@ -8,7 +8,7 @@ namespace OnionApp.Persistence.Context.Configurations
     {
         public void Configure(EntityTypeBuilder<AddressType> builder)
         {
-            builder.ToTable("dbo.tblAddressType");
+            builder.ToTable("tblAddressType");
             builder.HasKey(x => x.Id);
         }
     }

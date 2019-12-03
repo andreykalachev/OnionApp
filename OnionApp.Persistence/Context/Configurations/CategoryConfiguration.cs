@@ -8,7 +8,7 @@ namespace OnionApp.Persistence.Context.Configurations
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-            builder.ToTable("dbo.tblCategory");
+            builder.ToTable("tblCategory");
             builder.HasKey(x => x.Id);
         }
     }

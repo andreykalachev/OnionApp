@@ -12,7 +12,7 @@ namespace OnionApp.Domain.Models.Entities
 
         public Guid Id { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
 
         public string CreatedBy { get; set; }
 
@@ -20,7 +20,7 @@ namespace OnionApp.Domain.Models.Entities
 
         public string ModifiedBy { get; set; }
 
-        public bool IsDisabled { get; set; }
+        public bool? IsDisabled { get; set; }
 
         public Guid? ParentId { get; set; }
 

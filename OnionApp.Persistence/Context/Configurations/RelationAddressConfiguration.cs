@@ -8,7 +8,7 @@ namespace OnionApp.Persistence.Context.Configurations
     {
         public void Configure(EntityTypeBuilder<RelationAddress> builder)
         {
-            builder.ToTable("dbo.tblRelationAddress");
+            builder.ToTable("tblRelationAddress");
             builder.HasKey(x => x.RelationId);
         }
     }

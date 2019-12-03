@@ -10,5 +10,7 @@ namespace OnionApp.Domain.Interfaces.Services
         Task<IEnumerable<CountryBasicInfoDto>> GetAllEnabledBasicInfoAsync();
 
         Task<string> GetPostalCodeFormatAsync(Guid id);
+
+        Task<string> GetPostalCodeFormatByCountryNameAsync(string countryName);
     }
 }

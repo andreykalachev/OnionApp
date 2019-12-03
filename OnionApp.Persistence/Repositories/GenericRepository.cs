@@ -28,7 +28,7 @@ namespace OnionApp.Persistence.Repositories
 
         public virtual async Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            return await DbSet.FindAsync(predicate);
+            return await DbSet.FirstOrDefaultAsync(predicate);
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()

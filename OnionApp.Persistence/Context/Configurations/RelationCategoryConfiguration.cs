@@ -8,7 +8,7 @@ namespace OnionApp.Persistence.Context.Configurations
     {
         public void Configure(EntityTypeBuilder<RelationCategory> builder)
         {
-            builder.ToTable("dbo.tblRelationCategory");
+            builder.ToTable("tblRelationCategory");
             builder.HasKey(x => new { x.CategoryId, x.RelationId });
             builder.HasOne(x => x.Relation).WithMany(x => x.RelationCategories)
                 .HasForeignKey(x => x.RelationId);
