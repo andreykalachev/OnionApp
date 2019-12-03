@@ -66,6 +66,7 @@ namespace OnionApp.Controllers
         {
             var relation = _mapper.Map<RelationInfoViewModel, Relation>(relationInfoViewModel);
             await _relationService.CreateAsync(relation);
+
             return RedirectToAction("Index");
         }
 

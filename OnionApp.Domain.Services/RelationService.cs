@@ -53,7 +53,7 @@ namespace OnionApp.Domain.Services
             var address = relation.RelationAddress;
             var postalCodeMask = await _countryService.GetPostalCodeFormatByCountryNameAsync(address.CountryName);
 
-            var parsedPostalCode = PostCodeParser.Parse(address.PostalCode, postalCodeMask);
+            var parsedPostalCode = PostCodeParser.ApplyMaskToPostCode(address.PostalCode, postalCodeMask);
             relation.RelationAddress.PostalCode = parsedPostalCode;
 
             _repository.Add(relation);
@@ -98,7 +98,7 @@ namespace OnionApp.Domain.Services
                 _mapper.Map(relationBasicInfoDto, relation);
 
                 var postalCodeMask = await _countryService.GetPostalCodeFormatByCountryNameAsync(address.CountryName);
-                var parsedPostalCode = PostCodeParser.Parse(relationBasicInfoDto.PostalCode, postalCodeMask);
+                var parsedPostalCode = PostCodeParser.ApplyMaskToPostCode(relationBasicInfoDto.PostalCode, postalCodeMask);
                 relationBasicInfoDto.PostalCode = parsedPostalCode;
 
                 _mapper.Map(relationBasicInfoDto, relation.RelationAddress);
